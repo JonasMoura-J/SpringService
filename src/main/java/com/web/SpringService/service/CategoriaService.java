@@ -11,7 +11,7 @@ public class CategoriaService {
 	private CategoriaRepository repository;
 	
 	public Categoria buscar(Integer id){
-		Categoria obj = repository.findById(id);
+		Categoria obj = repository.buscarPorId(id);
 		return obj;
 	}
 }
