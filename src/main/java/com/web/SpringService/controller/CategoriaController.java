@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.web.SpringService.domain.Categoria;
-import com.web.SpringService.repositories.CategoriaRepository;
+import com.web.SpringService.service.CategoriaService;
 
 @RestController
 @RequestMapping(value="/categorias")
 public class CategoriaController {
 	
 	@Autowired
-	private CategoriaRepository repository;
+	private CategoriaService service;
 	
 	@GetMapping
 	@RequestMapping(value="/{id}")
 	public ResponseEntity<?> findById(@PathVariable Integer id){
 		
-		Categoria obj = repository.findById(id);
+		Categoria obj = service.buscar(id);
 		
 		return ResponseEntity.ok().body(obj);
 	}
