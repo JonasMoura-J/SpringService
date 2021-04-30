@@ -24,10 +24,6 @@ public enum TipoCliente {
 	public static TipoCliente toEnum(Integer cod) {
 		if(cod == null) return null;
 		
-		try {
-			return values()[cod-1];
-		}catch (IllegalArgumentException e) {
-			throw new IllegalArgumentException("Id inválido: " + cod);
-		}
+		return values()[cod-1];
 	}
 }
