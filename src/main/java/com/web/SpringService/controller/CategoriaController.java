@@ -15,7 +15,7 @@ import com.web.SpringService.service.CategoriaService;
 public class CategoriaController {
 	
 	@Autowired
-	private CategoriaService service;
+	CategoriaService service;
 	
 	@GetMapping
 	@RequestMapping(value="/{id}")

@@ -6,5 +6,6 @@ import com.web.SpringService.domain.Categoria;
 import com.web.SpringService.domain.Produto;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Object>{
+	
 	Categoria findById(Integer Id);
 }
