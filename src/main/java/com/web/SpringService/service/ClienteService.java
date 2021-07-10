@@ -1,5 +1,7 @@
 package com.web.SpringService.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +16,9 @@ public class ClienteService {
 	private ClienteRepository repository;
 
 	public Cliente buscar(Integer id) {
-		Cliente obj = repository.buscarPorId(id);
+		Optional<Cliente> obj = repository.findById(id);
 		
-		if(obj == null) {
-			throw new ObjectNotFoundException("Objeto não encontrado " + id + ", Tipo: "
-					+ Cliente.class.getName());
-		}
-		return obj;
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado " + id + ", Tipo: "
+				+ Cliente.class.getName()));
 	}
 }
